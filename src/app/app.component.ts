@@ -23,9 +23,6 @@ export class AppComponent implements OnInit, OnDestroy {
     var statusSubject = this.rookService.getStatus();
     this.status$ = statusSubject.subscribe({
       next: msg => {
-        // const parsedMsg = JSON.parse(msg);
-        // var obj = JSON.parse(JSON.stringify(msg));
-        // console.log('message received: ' + obj);
         this.myValue = msg['message_count'];
       }, 
       error: err => console.log('error' + err), // Called if at any point WebSocket API signals some kind of error.
