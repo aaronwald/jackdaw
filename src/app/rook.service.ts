@@ -11,7 +11,7 @@ export class RookService {
   }
 
   getStatus() {
-    var statusSubject = webSocket('ws://127.0.0.1:8080/ws');
+    var statusSubject = webSocket<any>('ws://127.0.0.1:8080/ws');
     return statusSubject;
    
   }
