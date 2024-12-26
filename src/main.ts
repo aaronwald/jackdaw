@@ -3,7 +3,11 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { RookService } from './app/rook.service';
+import { SalertComponent } from './app/salert/salert.component';
 
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
+
+bootstrapApplication(SalertComponent, appConfig)
+  .catch((err) => console.error(err));
+

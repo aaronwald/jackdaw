@@ -2,15 +2,18 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RookService } from './rook.service';
 import { Subscription } from 'rxjs';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NgbNavModule],
   providers: [RookService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy {
+  active = 1;
+
   title = 'jackdaw';
   private status$: Subscription;
   myValue: any;
