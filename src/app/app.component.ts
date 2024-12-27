@@ -6,7 +6,6 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NgbNavModule],
   providers: [RookService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

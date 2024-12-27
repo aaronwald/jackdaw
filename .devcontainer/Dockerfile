@@ -7,7 +7,7 @@ WORKDIR /workspace
 # Install Angular CLI globally
 RUN npm install -g @angular/cli
 
-# Install project dependencies
+# Install project dependencies (use yarn local)
 COPY . .
 RUN yarn install
 

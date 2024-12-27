@@ -1723,13 +1723,6 @@
   dependencies:
     tslib "^2.0.0"
 
-"@ngrx/store-devtools@^19.0.0":
-  version "19.0.0"
-  resolved "https://registry.yarnpkg.com/@ngrx/store-devtools/-/store-devtools-19.0.0.tgz#cab1738750e2d2a8dd44bd452fc658e0b8c0e93a"
-  integrity sha512-ZlnvWx1mYzZnnwEnMLMv2xDwK/IPN7bZ/901e6kwISKn+9HliC5Z4GzAhaRP/8iq0gAHvmMdBlrcvJrKmBVBSQ==
-  dependencies:
-    tslib "^2.0.0"
-
 "@ngrx/store@^19.0.0":
   version "19.0.0"
   resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-19.0.0.tgz#22e0874e5586374fde4be264ca624769042cd767"
