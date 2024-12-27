@@ -3,10 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { RookService } from './rook.service';
 import { Subscription } from 'rxjs';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   providers: [RookService],
+  imports: [NgbNavModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

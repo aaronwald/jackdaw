@@ -1,3 +1,11 @@
 <ngb-alert [dismissible]="false">
 	<strong>Warning!</strong> Better check yourself, you're not looking too good.
 </ngb-alert>
+
+<button (click)="increment()">Increment</button>
+
+<div>Current Count: {{ count$ | async }}</div>
+
+<button (click)="decrement()">Decrement</button>
+
+<button (click)="reset()">Reset Counter</button>
