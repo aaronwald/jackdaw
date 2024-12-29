@@ -15,8 +15,8 @@ import { CommonModule } from '@angular/common';
 export class SalertComponent {
   count$: Observable<number>
 
-  constructor(private store: Store<{ count: number }>) {
-    this.count$ = store.select('count');
+  constructor(private store: Store<{ rook: number }>) {
+    this.count$ = store.select('rook');
   }
 
   increment() {
