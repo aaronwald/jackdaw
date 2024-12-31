@@ -38,7 +38,6 @@ export class AppComponent implements OnInit, OnDestroy {
     this.status$ = statusSubject.subscribe({
       next: msg => {
         this.myValue = msg['message_count'];
-        console.log('message_count: ' + msg['message_count']);
         this.store.dispatch(increment());
       }, 
       error: err => console.log('error' + err), // Called if at any point WebSocket API signals some kind of error.

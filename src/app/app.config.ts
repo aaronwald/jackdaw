@@ -3,15 +3,14 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 
-import { StoreModule, provideStore } from '@ngrx/store';
+import { provideStore } from '@ngrx/store';
 import { rookReducer } from './rook.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-      importProvidersFrom(StoreModule.forRoot({ rook: rookReducer })),
-      // provideStore({ rook: rookReducer }),
+      provideStore({ rook: rookReducer }),
       provideStoreDevtools({
         maxAge: 25, // Retains last 25 states
         logOnly: !environment.production, // Restrict extension to log-only mode
