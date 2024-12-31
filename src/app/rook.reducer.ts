@@ -8,7 +8,9 @@ export const initialState: RookData = {
 
 export const rookReducer = createReducer(
   initialState,
-  on(increment, state => ({ message_count: state.message_count + 1 })),
+  on(increment, state => (
+    console.log("incrementing" + state.message_count),
+    { message_count: state.message_count + 1 })),
   on(decrement, state => ({ message_count: state.message_count - 1 })),
   on(reset, state => ({ message_count: 0 }))
 );

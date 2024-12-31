@@ -7,11 +7,13 @@ import { Store } from '@ngrx/store';
 import { increment  } from './rook.actions';
 import { RookData } from './rook.model';
 import { selectRook } from './rook.selector';
+import { SalertComponent } from './salert/salert.component';
 
 @Component({
   selector: 'app-root',
-  providers: [RookService],
-  imports: [NgbNavModule, CommonModule],
+  providers: [RookService, ],
+  imports: [NgbNavModule, CommonModule, SalertComponent],
+  standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

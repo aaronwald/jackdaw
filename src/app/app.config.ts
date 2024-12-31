@@ -10,8 +10,8 @@ import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-      // importProvidersFrom(StoreModule.forRoot({ rook: rookReducer })),
-      provideStore({ rook: rookReducer }),
+      importProvidersFrom(StoreModule.forRoot({ rook: rookReducer })),
+      // provideStore({ rook: rookReducer }),
       provideStoreDevtools({
         maxAge: 25, // Retains last 25 states
         logOnly: !environment.production, // Restrict extension to log-only mode

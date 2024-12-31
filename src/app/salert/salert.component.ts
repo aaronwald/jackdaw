@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { increment, decrement, reset } from '../rook.actions';
 import { Store } from '@ngrx/store';
 import { CommonModule } from '@angular/common';
@@ -14,17 +14,23 @@ import { selectRook } from '../rook.selector';
   templateUrl: './salert.component.html',
   styleUrl: './salert.component.css'
 })
-export class SalertComponent implements OnInit {
-  count$: Observable<RookData>
+export class SalertComponent implements OnInit, OnDestroy{
+  messageCount: number;
+  private subscription: Subscription;
 
   constructor(private store: Store<{ rook: RookData }>) {
-    this.count$ = store.select(selectRook);
+    this.subscription = Subscription.EMPTY;
+    this.messageCount = 0;
   }
 
   ngOnInit() {
-    this.count$.subscribe(data => {
-      console.log("testb + " + data.message_count);
+    this.subscription = this.store.select(selectRook).subscribe(data => {
+      this.messageCount = data.message_count;
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   increment() {

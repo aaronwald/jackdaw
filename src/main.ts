@@ -3,11 +3,11 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
-import { SalertComponent } from './app/salert/salert.component';
+// import { SalertComponent } from './app/salert/salert.component';
 
 bootstrapApplication(AppComponent, appConfig)
   .catch((err) => console.error(err));
 
-bootstrapApplication(SalertComponent, appConfig)
-  .catch((err) => console.error(err));
+// bootstrapApplication(SalertComponent, appConfig)
+//   .catch((err) => console.error(err));
 
