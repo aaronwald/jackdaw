@@ -6,15 +6,12 @@ import { environment } from '../environments/environment';
 //   providedIn: 'root'
 // })
 export class RookService {
-
   constructor() { 
-    console.log('rook service');
   }
 
   getStatus() {
     // var statusSubject = webSocket<any>('ws://127.0.0.1:8080/ws');
     var statusSubject = webSocket<any>(environment.rookUrl);
     return statusSubject;
-   
   }
 }
