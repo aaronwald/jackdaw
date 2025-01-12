@@ -1,0 +1,1 @@
+docker run    -p 9000:9000    -p 9001:9001    --name minio1    -v C:\jackdaw\data:/data    -e "MINIO_ROOT_USER=JACKDAW"   -e "MINIO_ROOT_PASSWORD=JACKDAW123" quay.io/minio/minio server /data --console-address ":9001"

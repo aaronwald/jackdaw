@@ -4,14 +4,14 @@ import { Subscription } from 'rxjs';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { increment  } from './rook.actions';
+import { increment } from './rook.actions';
 import { RookData } from './rook.model';
 import { selectRook } from './rook.selector';
 import { SalertComponent } from './salert/salert.component';
 
 @Component({
   selector: 'app-root',
-  providers: [RookService, ],
+  providers: [RookService,],
   imports: [NgbNavModule, CommonModule, SalertComponent],
   standalone: true,
   templateUrl: './app.component.html',
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private status$: Subscription;
   myValue: any;
 
-  constructor (private rookService: RookService,
+  constructor(private rookService: RookService,
     private store: Store<{ rook: RookData }>) {
 
     this.status$ = Subscription.EMPTY;
@@ -34,15 +34,19 @@ export class AppComponent implements OnInit, OnDestroy {
     this.store.select(selectRook).subscribe(data => {
       console.log("testa + " + data.message_count);
     });
-    var statusSubject = this.rookService.getStatus();
-    this.status$ = statusSubject.subscribe({
-      next: msg => {
-        this.myValue = msg['message_count'];
-        this.store.dispatch(increment());
-      }, 
-      error: err => console.log('error' + err), // Called if at any point WebSocket API signals some kind of error.
-      complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
-     });
+    // var statusSubject = this.rookService.getStatus();
+    // this.status$ = statusSubject.subscribe({
+    //   next: msg => {
+    //     this.myValue = msg['message_count'];
+    //     this.store.dispatch(increment());
+    //   },
+    //   error: err => console.log('error' + err), // Called if at any point WebSocket API signals some kind of error.
+    //   complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
+    // });
+
+    this.rookService.enable({ enabled: true }).subscribe(config => {
+      console.log('Updated config:', config);
+    });
   }
 
   ngOnDestroy() {
