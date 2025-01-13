@@ -3,7 +3,7 @@ import { webSocket } from 'rxjs/webSocket';
 import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EnableSound } from './rook.model';
+import { EnableSound, EnableSoundResponse } from './rook.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,12 @@ export class RookService {
 
   getStatus() {
     // var statusSubject = webSocket<any>('ws://127.0.0.1:8080/ws');
-    var statusSubject = webSocket<any>(environment.rookUrl);
+    var statusSubject = webSocket<any>(environment.rookWsUrl);
     return statusSubject;
   }
 
   enable(e: EnableSound) {
-    return this.http.post<EnableSound>(environment.rookStaticUrl + '/enable', e);
+    return this.http.post<EnableSoundResponse>(environment.rookStaticUrl + '/enable', e);
 
     // .subscribe(config => {
     //   console.log('Updated config:', config);

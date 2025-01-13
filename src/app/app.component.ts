@@ -34,20 +34,29 @@ export class AppComponent implements OnInit, OnDestroy {
     this.store.select(selectRook).subscribe(data => {
       console.log("testa + " + data.message_count);
     });
-    // var statusSubject = this.rookService.getStatus();
-    // this.status$ = statusSubject.subscribe({
-    //   next: msg => {
-    //     this.myValue = msg['message_count'];
-    //     this.store.dispatch(increment());
-    //   },
-    //   error: err => console.log('error' + err), // Called if at any point WebSocket API signals some kind of error.
-    //   complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
-    // });
-
-    this.rookService.enable({ enabled: true }).subscribe(config => {
-      console.log('Updated config:', config);
+    var statusSubject = this.rookService.getStatus();
+    this.status$ = statusSubject.subscribe({
+      next: msg => {
+        console.log('message received:');
+        this.myValue = msg['message_count'];
+        this.store.dispatch(increment());
+      },
+      error: err => console.log('error' + err), // Called if at any point WebSocket API signals some kind of error.
+      complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
     });
   }
+
+  enable () {
+    this.rookService.enable({ enabled: true }).subscribe(config => {
+      console.log('Updated config uuid:', config.uuid);
+    });
+  }
+  
+  disable () {
+      this.rookService.enable({ enabled: false }).subscribe(config => {
+        console.log('Updated config uuid:', config.uuid);
+      });
+    }
 
   ngOnDestroy() {
     this.status$.unsubscribe();
