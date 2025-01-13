@@ -25,4 +25,9 @@ export class RookService {
     //   console.log('Updated config:', config);
     // });
   }
+
+
+  checkEnabled() {
+    return this.http.get<EnableSoundResponse>(environment.rookStaticUrl + '/check_enabled');
+  }
 }

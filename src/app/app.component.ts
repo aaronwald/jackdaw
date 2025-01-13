@@ -38,23 +38,28 @@ export class AppComponent implements OnInit, OnDestroy {
     this.status$ = statusSubject.subscribe({
       next: msg => {
         console.log('message received:');
-        this.myValue = msg['message_count'];
         this.store.dispatch(increment());
       },
       error: err => console.log('error' + err), // Called if at any point WebSocket API signals some kind of error.
       complete: () => console.log('complete') // Called when connection is closed (for whatever reason).
+    });
+
+    this.rookService.checkEnabled().subscribe(config => {
+      this.myValue = config.enabled;
     });
   }
 
   enable () {
     this.rookService.enable({ enabled: true }).subscribe(config => {
       console.log('Updated config uuid:', config.uuid);
+      this.myValue = config.enabled;
     });
   }
   
   disable () {
       this.rookService.enable({ enabled: false }).subscribe(config => {
         console.log('Updated config uuid:', config.uuid);
+        this.myValue = config.enabled;
       });
     }
 
