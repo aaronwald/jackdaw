@@ -31,13 +31,9 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.store.select(selectRook).subscribe(data => {
-      console.log("testa + " + data.message_count);
-    });
     var statusSubject = this.rookService.getStatus();
     this.status$ = statusSubject.subscribe({
       next: msg => {
-        console.log('message received:');
         this.store.dispatch(increment());
       },
       error: err => console.log('error' + err), // Called if at any point WebSocket API signals some kind of error.
