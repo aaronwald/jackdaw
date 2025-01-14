@@ -9,6 +9,10 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { provideHttpClient } from '@angular/common/http';
 
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import Aqua from '@primeng/themes/aura';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideStore({ rook: rookReducer }),
@@ -21,5 +25,12 @@ export const appConfig: ApplicationConfig = {
       traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
     }),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes)]
+    provideRouter(routes),
+    provideAnimationsAsync(),
+        providePrimeNG({
+            theme: {
+                preset: Aqua
+            }
+        })
+  ]
 };

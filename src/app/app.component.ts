@@ -1,18 +1,18 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RookService } from './rook.service';
 import { Subscription } from 'rxjs';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { increment } from './rook.actions';
 import { RookData } from './rook.model';
 import { selectRook } from './rook.selector';
 import { SalertComponent } from './salert/salert.component';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-root',
   providers: [RookService,],
-  imports: [NgbNavModule, CommonModule, SalertComponent],
+  imports: [ CommonModule, SalertComponent, ButtonModule],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
