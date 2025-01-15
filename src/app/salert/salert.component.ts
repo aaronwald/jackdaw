@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, Subscription } from 'rxjs';
 import { increment, decrement, reset } from '../rook.actions';
 import { Store } from '@ngrx/store';
@@ -9,7 +8,7 @@ import { selectRook } from '../rook.selector';
 
 @Component({
   selector: 'app-salert',
-  imports: [NgbAlertModule, CommonModule],
+  imports: [CommonModule],
   standalone: true,
   templateUrl: './salert.component.html',
   styleUrl: './salert.component.css'

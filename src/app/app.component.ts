@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RookService } from './rook.service';
 import { Subscription } from 'rxjs';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { increment } from './rook.actions';
@@ -12,7 +11,7 @@ import { SalertComponent } from './salert/salert.component';
 @Component({
   selector: 'app-root',
   providers: [RookService,],
-  imports: [NgbNavModule, CommonModule, SalertComponent],
+  imports: [CommonModule, SalertComponent],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
