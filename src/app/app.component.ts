@@ -7,11 +7,12 @@ import { increment } from './rook.actions';
 import { RookData } from './rook.model';
 import { selectRook } from './rook.selector';
 import { SalertComponent } from './salert/salert.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
   selector: 'app-root',
   providers: [RookService,],
-  imports: [CommonModule, SalertComponent],
+  imports: [CommonModule, SalertComponent, MatSlideToggleModule],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -44,19 +45,19 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  enable () {
+  enable() {
     this.rookService.enable({ enabled: true }).subscribe(config => {
       console.log('Updated config uuid:', config.uuid);
       this.myValue = config.enabled;
     });
   }
-  
-  disable () {
-      this.rookService.enable({ enabled: false }).subscribe(config => {
-        console.log('Updated config uuid:', config.uuid);
-        this.myValue = config.enabled;
-      });
-    }
+
+  disable() {
+    this.rookService.enable({ enabled: false }).subscribe(config => {
+      console.log('Updated config uuid:', config.uuid);
+      this.myValue = config.enabled;
+    });
+  }
 
   ngOnDestroy() {
     this.status$.unsubscribe();

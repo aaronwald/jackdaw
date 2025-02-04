@@ -8,6 +8,7 @@ import { rookReducer } from './rook.reducer';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { provideHttpClient } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -21,5 +22,5 @@ export const appConfig: ApplicationConfig = {
       traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
     }),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes)]
+    provideRouter(routes), provideAnimationsAsync()]
 };
