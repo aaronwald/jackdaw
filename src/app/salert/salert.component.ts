@@ -11,7 +11,7 @@ import { selectRook } from '../rook.selector';
   imports: [CommonModule],
   standalone: true,
   templateUrl: './salert.component.html',
-  styleUrl: './salert.component.css'
+  styleUrl: './salert.component.scss'
 })
 export class SalertComponent implements OnInit, OnDestroy{
   messageCount: number;

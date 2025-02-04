@@ -14,7 +14,7 @@ import { SalertComponent } from './salert/salert.component';
   imports: [CommonModule, SalertComponent],
   standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy {
   active = 1;
