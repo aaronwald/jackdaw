@@ -1,6 +1,14 @@
+<mat-toolbar color="primary">
+  <span>Jackdaw</span>
+  <div class="nav-links">
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button routerLink="/about">About</button>
+    <button mat-button routerLink="/contact">Contact</button>
+  </div>
+</mat-toolbar>
+
 <button (click)="enable()">Enable</button>
 <button (click)="disable()">Disable</button>
 Sound Enabled[ {{ myValue }} ]
 
-<app-salert></app-salert>
 <mat-slide-toggle>Toggle me!</mat-slide-toggle>

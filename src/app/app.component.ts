@@ -6,13 +6,13 @@ import { Store } from '@ngrx/store';
 import { increment } from './rook.actions';
 import { RookData } from './rook.model';
 import { selectRook } from './rook.selector';
-import { SalertComponent } from './salert/salert.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-root',
   providers: [RookService,],
-  imports: [CommonModule, SalertComponent, MatSlideToggleModule],
+  imports: [CommonModule, MatSlideToggleModule, MatToolbarModule, MatButtonModule],
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
